@@ -4,14 +4,16 @@ class Player {
     #y
     #size
     #image
-    #dir
+    #dirX
+    #dirY
 
-    constructor(x, y, size, dir){
+    constructor(x, y, size, dirY, dirX){
 
         this.#x = x
         this.#y = y
         this.#size = size
-        this.#dir = dir
+        this.#dirY = dirY
+        this.#dirX = dirX
     }
 
     /**
@@ -28,16 +30,42 @@ class Player {
         return this.#y;
     }
 
+    getDir(){
+
+        return this.#dirX + this.#dirY
+    }
+
     draw(){
 
-        this.#body();
+        rect(this.#x, this.#y, this.#size, this.#size)
     }
 
-    move(dirX, dirY){
+    move(){
 
-        this.#x += dirX;
-        this.#y += dirY;
+        this.#x += this.#dirX;
+        this.#y += this.#dirY;
     }
 
+    (key){
 
+        if(key === "w"){
+
+            this.#dirY = -1
+        }
+
+        if(key === "s"){
+
+            this.#dirY = 1
+        }
+
+        if(key === "a"){
+
+            this.#dirX = -1
+        }
+
+        if(key === "d"){
+
+            this.#dirX = 1
+        }
+    }
 }
