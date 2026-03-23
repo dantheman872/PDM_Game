@@ -3,7 +3,6 @@ class Player {
     #x
     #y
     #size
-    #image
     #dirX
     #dirY
 
@@ -46,7 +45,7 @@ class Player {
         this.#y += this.#dirY;
     }
 
-    (key){
+    keyPressed(){
 
         if(key === "w"){
 
