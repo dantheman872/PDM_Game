@@ -1,12 +1,33 @@
 function setup(){
 
-    createCanvas(600,600)
-    player = new Player(200,100,200)
+    createCanvas(800, 600)
+    player = new Player();
 }
 
 function draw(){
-    
-    player.draw()
-    player.changeDir()
-    text(player.dirX, 10, 20)
+
+    background(220);
+    switch (state) {
+
+        case IDLE:
+            drawIdle();
+            break;
+        
+        case PLAYING:
+            player.draw();
+           break;
+        
+    }
+}
+
+function keyPressed(){
+
+    switch(keyCode) {
+
+        case LEFT_ARROW:
+            player.setXSpeed(-5);
+            break;
+        case RIGHT_ARROW:
+            player.aet
+    }
 }
