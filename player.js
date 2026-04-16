@@ -34,7 +34,7 @@ class Player {
         return this.#dirX + this.#dirY
     }
 
-    draw(){
+    drawIdle(){
 
         rect(this.#x, this.#y, this.#size, this.#size)
     }

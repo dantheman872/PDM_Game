@@ -2,7 +2,10 @@ function setup(){
 
     createCanvas(800, 600)
     player = new Player();
+    
 }
+
+let state = IDLE
 
 function draw(){
 
@@ -10,7 +13,7 @@ function draw(){
     switch (state) {
 
         case IDLE:
-            drawIdle();
+            player.drawIdle();
             break;
         
         case PLAYING:
