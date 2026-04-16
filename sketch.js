@@ -7,6 +7,7 @@ function setup(){
 
 let state = IDLE
 
+
 function draw(){
 
     background(220);

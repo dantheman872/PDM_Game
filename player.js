@@ -37,6 +37,7 @@ class Player {
     drawIdle(){
 
         rect(this.#x, this.#y, this.#size, this.#size)
+        rect(50,60,50,50)
     }
 
     move(){
