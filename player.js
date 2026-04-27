@@ -1,71 +1,32 @@
 class Player {
 
-    #x
-    #y
-    #size
-    #dirX
-    #dirY
-
-    constructor(x, y, size, dirY, dirX){
-
-        this.#x = x
-        this.#y = y
-        this.#size = size
-        this.#dirY = dirY
-        this.#dirX = dirX
+    constructor(x, y, r){
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.xDir = 0
+        this.yDir = 0
     }
 
-    /**
-     * Gets the x coordinate
-     * @returns {number}
-     */
-    getX(){
+    show(){
         
-        return this.#x;
-    }
-
-    getY(){
-
-        return this.#y;
-    }
-
-    getDir(){
-
-        return this.#dirX + this.#dirY
-    }
-
-    drawIdle(){
-
-        rect(this.#x, this.#y, this.#size, this.#size)
-        rect(50,60,50,50)
+        rect(this.x, this.y, this.r);     
     }
 
     move(){
 
-        this.#x += this.#dirX;
-        this.#y += this.#dirY;
+        backX -= this.xDir
+        backY -= this.yDir
     }
 
-    keyPressed(){
+    setXDir(xDir){
 
-        if(key === "w"){
+        this.xDir = xDir
+    }
 
-            this.#dirY = -1
-        }
+    setYDir(yDir){
 
-        if(key === "s"){
-
-            this.#dirY = 1
-        }
-
-        if(key === "a"){
-
-            this.#dirX = -1
-        }
-
-        if(key === "d"){
-
-            this.#dirX = 1
-        }
+        this.yDir = yDir
     }
 }
+

@@ -1,37 +1,66 @@
+function preload(){
+ backgroundImg = loadImage('assets/backgroudImg.png')
+}
+
+
+let player;
+let backX = 0
+let backY = 0
+
 function setup(){
 
     createCanvas(800, 600)
-    player = new Player();
-    
+    player = new Player(width/2-30, height/2-30, 60);   
+    angleMode(DEGREES) 
 }
-
-let state = IDLE
-
 
 function draw(){
 
     background(220);
-    switch (state) {
+    drawBackground();
+    player.show();   
+    player.move(); 
+    
+    
+}
 
-        case IDLE:
-            player.drawIdle();
+function keyPressed() {
+    switch(keyCode) {
+        case LEFT_ARROW:
+            player.setXDir(-5);
             break;
-        
-        case PLAYING:
-            player.draw();
-           break;
-        
+
+        case RIGHT_ARROW:
+            player.setXDir(5);
+            break;
+
+        case UP_ARROW:
+            player.setYDir(-5);
+            break;
+
+        case DOWN_ARROW:
+            player.setYDir(5);
+            break;
     }
 }
 
-function keyPressed(){
+function keyReleased(){
 
-    switch(keyCode) {
+    switch(keyCode){
 
         case LEFT_ARROW:
-            player.setXSpeed(-5);
-            break;
         case RIGHT_ARROW:
-            player.aet
+            player.setXDir(0);
+            break;
+
+        case UP_ARROW:
+        case DOWN_ARROW:
+            player.setYDir(0);
+            break;
     }
+}
+
+function drawBackground(){
+
+    image(backgroundImg, backX, backY, 1000, 1000)
 }
