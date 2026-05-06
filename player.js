@@ -1,22 +1,23 @@
 class Player {
 
-    constructor(x, y, r){
+    constructor(x, y, size){
         this.x = x;
         this.y = y;
-        this.r = r;
+        this.size = size;
         this.xDir = 0
         this.yDir = 0
     }
 
     show(){
         
-        rect(this.x, this.y, this.r);     
+        fill(220)
+        rect(this.x, this.y, this.size);     
     }
 
     move(){
 
-        backX -= this.xDir
-        backY -= this.yDir
+        this.x += this.xDir
+        this.y += this.yDir
     }
 
     setXDir(xDir){
@@ -29,4 +30,3 @@ class Player {
         this.yDir = yDir
     }
 }
-

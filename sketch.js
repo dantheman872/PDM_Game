@@ -1,7 +1,7 @@
 function preload(){
- backgroundImg = loadImage('assets/backgroudImg.png')
-}
 
+    backgroundImg = loadImage('assets/backgroudImg.png')
+}
 
 let player;
 let backX = 0
@@ -10,8 +10,8 @@ let backY = 0
 function setup(){
 
     createCanvas(800, 600)
-    player = new Player(width/2-30, height/2-30, 60);   
-    angleMode(DEGREES) 
+    player = new Player(width/2-30, height/2-30, 60);
+     
 }
 
 function draw(){
@@ -19,12 +19,14 @@ function draw(){
     background(220);
     drawBackground();
     player.show();   
-    player.move(); 
-    
+    player.move();    
+    drawObject();
+    spawnObjects();  
     
 }
 
 function keyPressed() {
+
     switch(keyCode) {
         case LEFT_ARROW:
             player.setXDir(-5);
