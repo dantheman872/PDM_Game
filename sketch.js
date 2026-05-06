@@ -4,13 +4,13 @@ function preload(){
 }
 
 let player;
-let backX = 0
-let backY = 0
+let backX = -14
+let backY = -14
 
 function setup(){
 
     createCanvas(800, 600)
-    player = new Player(width/2-30, height/2-30, 60);
+    player = new Player(width/2, height/2, 50);
      
 }
 

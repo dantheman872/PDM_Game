@@ -15,9 +15,9 @@ class Player {
     }
 
     move(){
-
-        this.x += this.xDir
-        this.y += this.yDir
+        
+        this.x += this.xDir;
+        this.y += this.yDir;
     }
 
     setXDir(xDir){
