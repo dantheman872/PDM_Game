@@ -79,7 +79,7 @@ class Grid {
      * This method will draw the grid to make it easier to check the add obstacle 
      * method is working
      */
-    _showGrid() {
+    showGrid() {
         for (let row = 0; row < this.#cells.length; row++) {
             const y = row * this.#cellSize;
             for (let col = 0; col < this.#cells[row].length; col++) {

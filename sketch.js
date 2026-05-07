@@ -11,6 +11,7 @@ function setup(){
 
     createCanvas(800, 600)
     player = new Player(width/2, height/2, 50);
+    spawnObjects();  
      
 }
 
@@ -21,7 +22,7 @@ function draw(){
     player.show();   
     player.move();    
     drawObject();
-    spawnObjects();  
+    
     
 }
 

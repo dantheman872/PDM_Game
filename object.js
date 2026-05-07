@@ -3,6 +3,7 @@ objectY = []
 let i = 0;
 let checkX = 0;
 let checkY = 0;
+let objAmount = 5;
 
 function drawObject(){
 
@@ -15,18 +16,19 @@ function drawObject(){
     }
 }
 
-// function spawnObjects(){
+function spawnObjects(){
 
-//     while(i < 10){
+    while(i < objAmount){
 
-//         checkX = round(random(1,5)) * 50
-//         checkY = round(random(1,5)) * 50
+        checkX = round(random(1,5)) * 50
+        checkY = round(random(1,5)) * 50
 
-//         if ((!objectX.includes(checkX)) && (!objectY.includes(checkY))){
+        if ((!objectX.includes(checkX)) && (!objectY.includes(checkY))){
 
-//             objectX.push(checkX)
-//             objectY.push(checkY)
-//             i++
-//         }                   
-//     }
-// }
+            objectX.push(checkX)
+            objectY.push(checkY)
+            i++
+            
+        }                   
+    }
+}
