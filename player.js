@@ -18,6 +18,8 @@ class Player {
         
         this.x += this.xDir;
         this.y += this.yDir;
+        backX -= this.xDir;
+        backY -= this.yDir;
     }
 
     setXDir(xDir){

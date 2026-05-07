@@ -28,7 +28,7 @@ function spawnObjects(){
             objectX.push(checkX)
             objectY.push(checkY)
             i++
-            
+            grid.addToGrid()            
         }                   
     }
 }
