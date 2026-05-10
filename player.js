@@ -31,4 +31,14 @@ class Player {
 
         this.yDir = yDir
     }
+
+    getX(){
+
+        return this.x
+    }
+
+    getY(){
+
+        return this.y
+    }
 }

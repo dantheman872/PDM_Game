@@ -9,7 +9,7 @@ let backY = -14
 
 function setup(){
 
-    createCanvas(800, 600)
+    createCanvas(500, 600)
     player = new Player(width/2, height/2, 50);
     grid = new Grid();
     spawnObjects();  
@@ -19,7 +19,7 @@ function setup(){
 
 function draw(){
 
-    background(220);
+   
     drawBackground();
     player.show();   
     player.move();    
@@ -70,5 +70,15 @@ function keyReleased(){
 
 function drawBackground(){
 
-    image(backgroundImg, backX, backY, 1000, 1000)
+    background(220);
+    //image(backgroundImg, backX, backY, 1000, 1000)
+    if (player.getY() <= 260){
+    
+        background(200)
+        image(backgroundImg, 0 + width/2 - player.getX(), 0 + height/2 - 260);
+    } else {
+
+        background(10)
+        image(backgroundImg, 0 + width/2 - player.getX(), 0 + height/2 - player.getY());
+    }
 }
