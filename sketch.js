@@ -1,7 +1,6 @@
 
 let player;
 let grid;
-let xp;
 let backgroundImg, backWidth, backHeight;
 
 backHeight = 800;
@@ -21,7 +20,6 @@ function setup(){
     createCanvas(500, 500)
     player = new Player(width/2, height/2, 50);
     grid = new Grid();
-    xp = new xP(false);
     grid.fillGrid();
     spawnObjects();  
     
@@ -40,14 +38,8 @@ function draw(){
     drawBackground();
     player.move();
     player.show();
-    if(xp.alive){
 
-        xp.show()  
-    }
-     
-    xp.move()
-    xp.moveToPlayer()
-    xp.pickUp()
+
         
     
     drawObject();
@@ -62,18 +54,22 @@ function keyPressed() {
     switch(keyCode) {
         case LEFT_ARROW:
             player.setXDir(-5);
+            player.setYDir(0);
             break;
 
         case RIGHT_ARROW:
             player.setXDir(5);
+            player.setYDir(0);
             break;
 
         case UP_ARROW:
             player.setYDir(-5);
+            player.setXDir(0);
             break;
 
         case DOWN_ARROW:
             player.setYDir(5);
+            player.setXDir(0);
             break;
     }
 }

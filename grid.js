@@ -26,7 +26,8 @@ class Grid{
 
     addToGrid(x, y){
 
-        gridA[x][y] = true       
+        gridA[x][y] = true    
+        console.log(gridA)   
     }
 
     show(){       

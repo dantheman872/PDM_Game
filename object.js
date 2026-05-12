@@ -6,7 +6,7 @@ let health = 2;
 
 let checkX = 0;
 let checkY = 0;
-let objAmount = 1;
+let objAmount = 50;
 
 function drawObject(){
 
@@ -47,7 +47,7 @@ function breakObject(){
         objectX.splice(0,10)
         objectY.splice(0,10)
         spawnObjects();
-        xp.spawn();
+       
 
 
     }

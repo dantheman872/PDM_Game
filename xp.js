@@ -1,60 +1,36 @@
-class xP{
+//  //console.log(Math.floor((this.x + width/2) / 50) + " + " + Math.floor((this.y + height/2) / 50))
 
-    constructor(alive){
+//         if(this.xDir == 5){
 
-        this.x 
-        this.y 
-        this.dirX
-        this.dirY
-        this.alive = alive
-    }
+//             if(!grid.isOccupied(((this.x + width/2) / 50) + 1, ((this.y + height/2) / 50))){
 
-    show(){
+//                 this.x += this.xDir;
+//             }
+//         }
 
-        fill(200,200,100)
-        circle(this.x, this.y, 10)
-    }
+//         if(this.xDir == -5){
 
-    move(){
+//             if(!grid.isOccupied(((this.x + width/2) / 50) - 1, ((this.y + height/2) / 50))){
 
-       // this.x += this.dirX
-       // this.y += this.dirY
-    }
+//                 this.x += this.xDir;
+//             } 
+//         }
 
-    spawn(){
+//         if(this.yDir == 5){
 
-        this.x = player.getX()
-        this.y = player.getY()
-        //this.dirX = random(-2,2)
-        //this.dirY = random(-2,2)
-        this.alive = true
-    }
+//             if(!grid.isOccupied(((this.x + width/2) / 50), ((this.y + height/2) / 50) + 1)){
 
-    moveToPlayer(){
+//                 this.y += this.yDir;
+//             } else {
 
-        if(this.x > (player.getX() + width/2 - player.getX())){
+//                 breakObject();
+//             }
+//         }
 
-            this.x--
-        } else {
+//         if(this.yDir == -5){
 
-            this.x++
-        }
-        
-        if(this.y > (player.getY() + height/2 - player.getY())){
+//             if(!grid.isOccupied(((this.x + width/2) / 50), ((this.y + height/2) / 50) -1)){
 
-            this.y--
-        } else {
-
-            this.y++
-        }
-
-    }
-
-    pickUp(){
-
-        if(this.x = player.getX() + width/2 + player.getX() && this.alive == true){
-
-            background(120)
-        }
-    }
-}
+//                 this.y += this.yDir;
+//             } 
+//         }   
