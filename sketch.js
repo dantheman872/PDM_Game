@@ -29,8 +29,6 @@ function setup(){
         grid.addToGrid(0, i);
         grid.addToGrid(17, i);
         grid.addToGrid(i, 17);
-
-        //console.log("1 + " + i)
     }
       
 }
@@ -38,14 +36,15 @@ function setup(){
 function draw(){
 
     drawBackground();
+    player.move();
     player.show();   
-    player.move();    
+        
     
     drawObject();
-    if(keyCode === 81){
+    //if(keyCode === 81){
 
         grid.show();    
-    }
+    //}
 }
 
 function keyPressed() {

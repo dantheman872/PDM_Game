@@ -17,12 +17,20 @@ class Grid{
                 gridA[i][j] = false
             }
         }
-        //console.log(gridA)
+        console.log(gridA)
     }
 
-    isOccupied(){
+    isOccupied(x, y){
 
+        // if(x < 0 || x >= width || y < 0 || y > height){
 
+        //     console.log("wall")
+        //     return true            
+        // }
+
+        //console.log(gridA[x][y])
+        
+        return gridA[round(x)][round(y)]
     }
 
     addToGrid(x, y){

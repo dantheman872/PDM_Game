@@ -18,11 +18,47 @@ class Player {
     }
 
     move(){
+
+        //console.log(round((this.x + height/2) /50) + " + " + round((this.y + height/2) /50))
+
+        if(this.xDir == 5){
+
+            if(!grid.isOccupied(round((this.x + width/2) / 50) + 1, round((this.y + height/2) / 50))){
+
+                this.x += this.xDir;
+            }
+        }
+
+        if(this.xDir == -5){
+
+            if(!grid.isOccupied(round((this.x + width/2) / 50) - 1, round((this.y + height/2) / 50))){
+
+                this.x += this.xDir;
+            }
+        }
+
+        if(this.yDir == 5){
+
+            if(!grid.isOccupied(round((this.x + width/2) / 50), round((this.y + height/2) / 50) + 1)){
+
+                this.y += this.yDir;
+            }
+        }
+
+        if(this.yDir == -5){
+
+            if(!grid.isOccupied(round((this.x + width/2) / 50), round((this.y + height/2) / 50) -1)){
+
+                this.y += this.yDir;
+            }
+        }
+
+        // if(!grid.isOccupied(round((this.x + width/2) / 50), round((this.y + height/2) / 50))){
         
-        this.x += this.xDir;
-        this.y += this.yDir;
-      //  backX -= this.xDir;
-       // backY -= this.yDir;
+        //     this.x += this.xDir;
+        //     this.y += this.yDir;             
+        // }
+        
     }
 
     setXDir(xDir){
