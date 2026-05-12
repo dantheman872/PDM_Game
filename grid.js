@@ -17,37 +17,19 @@ class Grid{
                 gridA[i][j] = false
             }
         }
-        console.log(gridA)
     }
 
     isOccupied(x, y){
-
-        // if(x < 0 || x >= width || y < 0 || y > height){
-
-        //     console.log("wall")
-        //     return true            
-        // }
-
-        //console.log(gridA[x][y])
         
-        return gridA[round(x)][round(y)]
+        return gridA[Math.floor(x)][Math.floor(y)]
     }
 
     addToGrid(x, y){
 
-        gridA[x][y] = true   
-        //console.log(gridA[x][y])
-        
+        gridA[x][y] = true       
     }
 
-    #getIndexOfCoords(){
-
-
-    }
-
-    show(){
-
-        
+    show(){       
 
         for(let i = 0; i < gridA.length; i++){
 
@@ -64,5 +46,15 @@ class Grid{
                 }
             }
         }       
+    }
+
+    indexToCoord(x, y){
+
+        
+    }
+
+    coordToIndex(x, y){
+
+
     }
 }

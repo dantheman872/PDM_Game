@@ -1,9 +1,12 @@
 objectX = []
 objectY = []
+
 let i = 0;
+let health = 2;
+
 let checkX = 0;
 let checkY = 0;
-let objAmount = 10;
+let objAmount = 1;
 
 function drawObject(){
 
@@ -11,24 +14,41 @@ function drawObject(){
 
         fill(50)
         rect(objectX[i] * 50- player.getX(), objectY[i] * 50 - player.getY(), 50)
-        //fill(255)
-        //text(i, objectX[i] - player.getX() + 25, objectY[i] - player.getY() +25)
     }
 }
 
 function spawnObjects(){
 
-    while(i < objAmount){
+    
+    while(i < 1){
 
-        checkX = round(random(3,14)) 
-        checkY = round(random(3,14)) 
+        checkX = Math.floor(random(3,14)) 
+        checkY = Math.floor(random(3,14)) 
         objectX.push(checkX)
         objectY.push(checkY)
 
-        //console.log(checkX + " + " + checkY)
-
+        health = 100
         grid.addToGrid(checkX, checkY)     
         
         i++                        
+    }
+}
+
+function breakObject(){
+
+    //console.log("breakable" + health + objectX)
+
+    
+    health -= 1
+    
+
+    if (health < 0){
+
+        objectX.splice(0,10)
+        objectY.splice(0,10)
+        spawnObjects();
+        xp.spawn();
+
+
     }
 }
