@@ -5,13 +5,30 @@ class Grid{
 
     }
 
+    fillGrid(){
+
+        
+        for(let i = 0; i < cols; i++){
+            
+            gridA[i] = []
+
+            for (let j = 0; j < rows; j++){
+
+                gridA[i][j] = false
+            }
+        }
+        //console.log(gridA)
+    }
+
     isOccupied(){
 
 
     }
 
-    addToGrid(){
+    addToGrid(x, y){
 
+        gridA[x][y] = true   
+        //console.log(gridA[x][y])
         
     }
 
@@ -22,22 +39,22 @@ class Grid{
 
     show(){
 
-        stroke(3)
-        fill(100,100,100,100)
+        
 
-        for(let i = 0; i < 10; i++){
+        for(let i = 0; i < gridA.length; i++){
 
-            for(let o = 0; o < 10; o++){
+            for(let j = 0; j < gridA.length; j++){
 
-                rect(i * 50, o * 50, 50)
+                if(gridA[i][j] == false){
+
+                    fill(100,100,100,100)
+                    rect((i * 50) - player.getX(), (j * 50) - player.getY(), 50 )
+                } else {
+
+                    fill(200,100,100,100)
+                    rect((i * 50) - player.getX(), (j * 50) - player.getY(), 50)
+                }
             }
-        }
-
-        for(let j = 0; j < objectX.length; j++){
-
-            stroke(3)
-            fill(200,100,100,100)
-            rect(objectX[j], objectY[j], 50)
-        }
+        }       
     }
 }

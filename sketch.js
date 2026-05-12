@@ -1,33 +1,50 @@
+
+let player;
+let grid;
+let backgroundImg, backWidth, backHeight;
+
+backHeight = 800;
+backWidth = 800;
+
+let cols = (backWidth / 50) + 2
+let rows = (backHeight / 50) + 2
+let gridA = []
+
 function preload(){
 
     backgroundImg = loadImage('assets/backgroudImg.png')
 }
 
-let player, grid;
-let backX = -14
-let backY = -14
-
 function setup(){
 
-    createCanvas(500, 600)
+    createCanvas(500, 500)
     player = new Player(width/2, height/2, 50);
     grid = new Grid();
+    grid.fillGrid();
     spawnObjects();  
-    grid.addToGrid();
-     
+    
+    for(let i = 0; i < gridA.length; i++){
+
+        grid.addToGrid(i, 0);
+        grid.addToGrid(0, i);
+        grid.addToGrid(17, i);
+        grid.addToGrid(i, 17);
+
+        //console.log("1 + " + i)
+    }
+      
 }
 
 function draw(){
 
-   
     drawBackground();
     player.show();   
     player.move();    
+    
     drawObject();
+    if(keyCode === 81){
 
-    if (keyCode === 81){
-
-        grid.show();
+        grid.show();    
     }
 }
 
@@ -71,14 +88,6 @@ function keyReleased(){
 function drawBackground(){
 
     background(220);
-    //image(backgroundImg, backX, backY, 1000, 1000)
-    if (player.getY() <= 260){
-    
-        background(200)
-        image(backgroundImg, 0 + width/2 - player.getX(), 0 + height/2 - 260);
-    } else {
-
-        background(10)
-        image(backgroundImg, 0 + width/2 - player.getX(), 0 + height/2 - player.getY());
-    }
+    fill(200)
+    rect(50 - player.getX(), 50 - player.getY(), backHeight, backWidth)
 }
