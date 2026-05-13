@@ -27,7 +27,12 @@ class Grid{
     addToGrid(x, y){
 
         gridA[x][y] = true    
-        console.log(gridA)   
+        //console.log(gridA)   
+    }
+
+    removeFromGrid(x, y){
+
+        gridA[x][y] = false
     }
 
     show(){       
@@ -40,6 +45,9 @@ class Grid{
 
                     fill(100,100,100,100)
                     rect((i * 50) - player.getX(), (j * 50) - player.getY(), 50 )
+                    fill(0)
+                    text((i * 50), (i * 50) - player.getX(), (j * 50) + 10 - player.getY())
+                    text((j * 50), (i * 50) + 25 - player.getX(), (j * 50) + 10 - player.getY())
                 } else {
 
                     fill(200,100,100,100)
@@ -47,15 +55,5 @@ class Grid{
                 }
             }
         }       
-    }
-
-    indexToCoord(x, y){
-
-        
-    }
-
-    coordToIndex(x, y){
-
-
     }
 }

@@ -1,5 +1,6 @@
 
 let player;
+let item;
 let grid;
 let backgroundImg, backWidth, backHeight;
 
@@ -20,6 +21,7 @@ function setup(){
     createCanvas(500, 500)
     player = new Player(width/2, height/2, 50);
     grid = new Grid();
+    item = new Item();
     grid.fillGrid();
     spawnObjects();  
     
@@ -38,15 +40,14 @@ function draw(){
     drawBackground();
     player.move();
     player.show();
-
-
+    item.show()
         
     
     drawObject();
-    if(keyCode === 81){
+    //if(keyCode === 81){
 
         grid.show();    
-    } 
+    //} 
 }
 
 function keyPressed() {
