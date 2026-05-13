@@ -83,6 +83,7 @@ function draw(){
     player.show();
     shop.show()
     item.show()
+    item.isColliding()
     shop.isColliding()
     player.isColliding()
 

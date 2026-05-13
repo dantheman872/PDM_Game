@@ -5,6 +5,7 @@ class Item {
         this.x = [];
         this.y = [];
         this.w = 20;
+        this.h = 20;
         this.rockA = 0;
     }
 
@@ -25,7 +26,13 @@ class Item {
 
     isColliding(){
 
-        player.isColliding()
+        for(let i = 0; i < item.x.length; i++){
+        
+            if(player.isColliding(this.x[i] * 50, this.y[i] * 50, this.w, this.h)){
+
+                this.pickUp()
+            }
+        }
     }
 
     pickUp(){
@@ -35,3 +42,6 @@ class Item {
         this.rockA += 1;
     }    
 }
+
+
+

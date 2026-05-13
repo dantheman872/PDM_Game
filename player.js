@@ -6,6 +6,8 @@ class Player {
         this.size = size;
         this.xDir = 0
         this.yDir = 0
+        this.w = 50
+        this.h = 50
     }
 
     show(){
@@ -13,6 +15,7 @@ class Player {
         //fill(100,100,200);
         //rect(width/2, height/2 , 50);
         //rect(this.x + width/2 - this.x, this.y + height/2 - this.y, 10)
+
         if(this.xDir == 5 && breaking){
 
             image(playerAttackRight, width/2 - 25, height/2 - 25, 100, 100)
@@ -116,16 +119,12 @@ class Player {
         return this.y
     }
 
-    isColliding(){
+    isColliding(x, y, w, h){
 
-        for(let i = 0; i < item.x.length; i++){
+        if((this.x + (width/2)) - x < (this.w/2) + (w/2) && (this.x + (width/2)) - x > -(this.w/2 + (w/2))
+            && (this.y + (height/2)) - y < this.h/2 + h/2 && this.y + height/2 - y > -(this.h/2 + h/2)){
 
-            
-            if(this.x + width/2 - (item.x[i] * 50) < 35 && this.x + width/2 - (item.x[i] * 50) > -35
-                && this.y + height/2 - (item.y[i] * 50) < 35 && this.y + height/2 - (item.y[i] * 50) > -35){
-
-                item.pickUp()
-            }
+             return true              
         }
     }
 }
