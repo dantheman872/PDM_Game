@@ -66,8 +66,6 @@ class Player {
                 breakObject()
             }            
         }
-
-        item.isColliding(this.x + width/2, this.y + height/2, this.size)
     }
 
     setXDir(xDir){
@@ -88,5 +86,18 @@ class Player {
     getY(){
 
         return this.y
+    }
+
+    isColliding(){
+
+        for(let i = 0; i < item.x.length; i++){
+
+            
+            if(this.x + width/2 - (item.x[i] * 50) < 35 && this.x + width/2 - (item.x[i] * 50) > -35
+                && this.y + height/2 - (item.y[i] * 50) < 35 && this.y + height/2 - (item.y[i] * 50) > -35){
+
+                item.pickUp()
+            }
+        }
     }
 }

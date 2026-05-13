@@ -41,13 +41,17 @@ function draw(){
     player.move();
     player.show();
     item.show()
+    player.isColliding()
         
     
     drawObject();
     //if(keyCode === 81){
 
         grid.show();    
-    //} 
+   //} 
+
+    text("Rocks Collected: ", 20, 30)
+    text(item.rockA, 120, 30)
 }
 
 function keyPressed() {
