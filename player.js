@@ -10,9 +10,32 @@ class Player {
 
     show(){
         
-        fill(100,100,200);
-        rect(width/2, height/2 , 50);
+        //fill(100,100,200);
+        //rect(width/2, height/2 , 50);
         //rect(this.x + width/2 - this.x, this.y + height/2 - this.y, 10)
+        if(this.xDir == 5 && breaking){
+
+            image(playerAttackRight, width/2 - 25, height/2 - 25, 100, 100)
+        } else
+
+        if(this.xDir == -5 && breaking){
+
+            image(playerAttackLeft, width/2 - 25, height/2 - 25, 100, 100)
+        } else
+
+        if(this.yDir == 5 && breaking){
+
+            image(playerAttackDown, width/2 - 25, height/2 - 25, 100, 100)
+        } else
+
+        if(this.yDir == -5 && breaking){
+
+            image(playerAttackUp, width/2 - 25, height/2 - 25, 100, 100)
+        } else {
+
+            breaking = false
+            image(playerIdle, width/2 - 25, height/2 - 25, 100, 100)
+        }
     }
 
     move(){
@@ -23,6 +46,8 @@ class Player {
                 !grid.isOccupied(Math.floor((this.x + width/2) / 50) + 1, Math.floor((this.y + height/2) /50) + 1)){
 
                 this.x += this.xDir
+                breaking = false
+
             } else {
 
                 breakObject()
@@ -36,6 +61,7 @@ class Player {
                 !grid.isOccupied(Math.floor((this.x - 5 + width/2) / 50) , Math.floor((this.y + height/2) /50) + 1)){
 
                 this.x += this.xDir
+                breaking = false
             } else {
 
                 breakObject()
@@ -49,6 +75,7 @@ class Player {
                 !grid.isOccupied(Math.floor((this.x + width/2) / 50) + 1, Math.floor((this.y + height/2) /50) + 1)){
 
                 this.y += this.yDir
+                breaking = false
             } else {
 
                 breakObject()
@@ -61,6 +88,7 @@ class Player {
                 !grid.isOccupied(Math.floor((this.x + width/2) / 50) + 1, Math.floor((this.y -5 + height/2) /50))){
 
                 this.y += this.yDir
+                breaking = false
             } else {
 
                 breakObject()

@@ -7,15 +7,21 @@ let health = 3;
 let checkX = 0;
 let checkY = 0;
 let objAmount = 50;
+let breaking = false
 
 function drawObject(){
 
     for(i = 0; i < objectX.length; i++){
 
         fill(50)
-        rectMode(CENTER)
-        rect((objectX[i] * 50 - player.getX()) + 25, (objectY[i] * 50 - player.getY()) + 25, health/4)
-        rectMode(CORNER)
+        
+        imageMode(CENTER)
+        image(stone,(objectX[i] * 50 - player.getX()) + 25, (objectY[i] * 50 - player.getY()) +28, health, health)
+        imageMode(CORNER)
+
+        //rectMode(CENTER)
+        //rect((objectX[i] * 50 - player.getX()) + 25, (objectY[i] * 50 - player.getY()) + 25, health/4)
+        //rectMode(CORNER)
     }
     //console.log(health)
 }
@@ -31,10 +37,12 @@ function spawnObjects(){
         objectX.push(checkX)
         objectY.push(checkY)
 
-        health = 200
+        
         grid.addToGrid(checkX, checkY)     
         
-        i++                        
+        health = 200  
+        i++    
+                          
     }
 }
 
@@ -42,9 +50,9 @@ function breakObject(){
 
     
     health -= 1
-    
+    breaking = true
 
-    if (health < 0){
+    if (health < 2){
 
         objectX.splice(0,10)
         objectY.splice(0,10)
@@ -53,6 +61,7 @@ function breakObject(){
         i--
 
         spawnObjects();
+        
         
         
         

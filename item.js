@@ -23,6 +23,11 @@ class Item {
         }
     }
 
+    isColliding(){
+
+        player.isColliding()
+    }
+
     pickUp(){
 
         this.x.splice(0,10);

@@ -46,8 +46,8 @@ class Grid{
                     fill(100,100,100,100)
                     rect((i * 50) - player.getX(), (j * 50) - player.getY(), 50 )
                     fill(0)
-                    text((i * 50), (i * 50) - player.getX(), (j * 50) + 10 - player.getY())
-                    text((j * 50), (i * 50) + 25 - player.getX(), (j * 50) + 10 - player.getY())
+                    text((i ), (i * 50) - player.getX(), (j * 50) + 10 - player.getY())
+                    text((j ), (i * 50) + 25 - player.getX(), (j * 50) + 10 - player.getY())
                 } else {
 
                     fill(200,100,100,100)
