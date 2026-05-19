@@ -1,22 +1,30 @@
+// Variable creation
+
 let myFont;
 let angle = 0;
 let player;
 let item;
 let grid;
+
+//Image variable creation
 let shop, shopImage, shopkeeper, furnaceRoom, furnace;
 let backgroundImg, backWidth, backHeight;
-let playerAttackDown, playerAttackRight, playerAttackLeft, playerAttackUp, playerIdle, playerWalkingDown, playerWalkingRight, playerWalkingLeft, playerWalkingUp;
+let playerAttackDown, playerAttackRight, playerAttackLeft, playerAttackUp, playerIdle;
+let playerWalkingDown, playerWalkingRight, playerWalkingLeft, playerWalkingUp;
 let stone, stonePickup;
 
+//Setting the dimensions for the background
 backHeight = 910;
 backWidth = 900;
 
+//Grid setup
 let cols = (backWidth / 50)// + 2
 let rows = (backHeight / 50) - 4
 let gridA = []
 
 function preload(){
 
+    
     myFont = loadFont("assets/OldStandardTT-Regular.ttf")
 
     backgroundImg = loadImage('assets/background.png')
@@ -24,6 +32,7 @@ function preload(){
     stone = loadImage('assets/stone.png')
     stonePickup = loadImage('assets/stone_pickup.png')
    
+    //Player movement and attack
     playerAttackLeft = loadImage('assets/Player/Left/player_mining_left.gif')
     playerWalkingLeft = loadImage('assets/Player/Left/player_walking_left.gif')
 
@@ -38,31 +47,39 @@ function preload(){
 
     playerIdle = loadImage('assets/Player/Down/player_walking_down.gif')
 
+    //Shop preloading
     shopImage = loadImage('assets/Shop/shop.png')
     shopkeeper = loadImage('assets/Shop/shopkeeper.gif')
     furnaceRoom = loadImage('assets/Shop/furnace_Room.png')
-    furnace = loadImage('assets/Shop/furnace.png')
-    
-
-    
+    furnace = loadImage('assets/Shop/furnace.png')   
 }
 
 
 function setup(){
+   
+    //General setup
     textFont(myFont)
     createCanvas(500, 500)
     angleMode(DEGREES)
     keyCode = 13
     
+    //Draws instructions outside of canvas
     let p = createP("Use the arrow keys to move and to mine rocks and sell them to the forge")
     p.position(windowWidth / 2 - 230, windowHeight * 3/4 + 20)
+
+    //Creates each object
     player = new Player(30, -125, 50);
     grid = new Grid();
     item = new Item();
     shop = new Shop();
+
+    //Fills grid with empty tiles
     grid.fillGrid();
+
+    //Starts the first rock spawning
     spawnObjects();  
     
+    //Fill blocked grid tiles with true
     for(let i = 0; i < gridA.length; i++){
 
         grid.addToGrid(i, 0);
@@ -108,51 +125,50 @@ function setup(){
 
 function draw(){
     
-
     drawBackground();
+
+    //Runs the functions for the objects to move show and check collision
     player.move();
+
     shop.show()
     player.show();
-    
     item.show()
+
     item.isColliding()
     shop.isColliding()
     player.isColliding()
 
+    //Resets the game on pressing R
     if(keyCode === 82){
 
         item.rockA = 0
         player.x = width * 1/4
         player.y = height * 1/4
     }
-    //console.log(item.rockA)
 
-    if(breaking == true){
-
-        //console.log("true")
-    }
-        //console.log(angle)
-        //console.log(player.x + " + " + player.y)
+    //Checks if the player is open in the shop
     if(keyCode === 13 && shop.isColliding()){
-
         
     } else {
 
+        //Draws the rocks
         drawObject();
     }
     
+    //Show the grid after pressing Q for debugging
     if(keyCode === 81){
 
         grid.show();    
     } 
-
-    //text("Rocks Collected: ", 20, 30)
-    //text(item.rockA, 120, 3    
 }
 
+/**
+ * Checks to start movement
+ */
 function keyPressed() {
 
     switch(keyCode) {
+
         case LEFT_ARROW:
             player.setXDir(-5);
             player.setYDir(0);
@@ -175,6 +191,9 @@ function keyPressed() {
     }
 }
 
+/**
+ * Checks to stop movement
+ */
 function keyReleased(){
 
     switch(keyCode){
@@ -191,10 +210,11 @@ function keyReleased(){
     }
 }
 
+/**
+ * Draws the Background
+ */
 function drawBackground(){
 
-    background(220);
-    fill(200)
-    rect(50 - player.getX(), 50 - player.getY(), backHeight, backWidth)
+    background(24, 10, 7);
     image(backgroundImg, -15 - player.getX(), -150 - player.getY(), backHeight, backWidth)
 }

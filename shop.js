@@ -1,6 +1,5 @@
 class Shop {
 
-
     constructor(){
 
         this.x = 250
@@ -9,6 +8,9 @@ class Shop {
         this.h = 180
     }
 
+    /**
+     * Displays the image of the shop and the keeper
+     */
     show(){
 
         image(shopImage, this.x - player.getX(), this.y - player.getY(), this.w, this.h)  
@@ -16,6 +18,10 @@ class Shop {
 
     }
 
+    /**
+     * 
+     * @returns True if the player is within bounds of the shop
+     */
     isColliding(){
 
         if(player.isColliding(this.x, this.y + 50, this.w, this.h)){
