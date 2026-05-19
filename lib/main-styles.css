@@ -5,11 +5,11 @@ body {
 }
 
 canvas {
-  border: solid 1px rgb(0, 0, 0);
+  border: solid 2px rgb(0, 0, 0);
 }
 
 img, pre {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 
 pre {
@@ -18,7 +18,7 @@ pre {
 
 .guidance {
     order: 99;
-    background-color: #eeeeee;
+    background-color: #ffffff;
     padding: 2em;
     margin-top: 1em;
 }
@@ -56,3 +56,11 @@ pre {
         height: auto;
     }
 } 
+
+main {  
+
+    display: flex;  
+    height: 55vh;  
+    align-items: center;  
+    justify-content: center;
+}
