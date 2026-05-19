@@ -1,73 +1,92 @@
+/**
+ * Controls the player
+ */
 class Player {
 
-    constructor(x, y, size){
+    /**
+     * Sets the players parameters
+     * @param {*} x - Players x coordinate
+     * @param {*} y - Players y coordinate
+     * @param {*} w - Players width
+     * @param {*} h - Players height
+     */
+    constructor(x, y, w, h){
         this.x = x;
         this.y = y;
-        this.size = size;
+        this.w = w
+        this.h = h
         this.xDir = 0
         this.yDir = 0
-        this.w = 50
-        this.h = 50
+        
     }
 
+    /**
+     * Shows the players different animations
+     */
     show(){
         
-        //fill(100,100,200);
-        //rect(width/2, height/2 , 50);
-        //rect(this.x + width/2 - this.x, this.y + height/2 - this.y, 10)
-
+        //If walking right
         if(this.xDir == 5){
 
             if(breaking){
 
-                image(playerAttackRight, width/2 - 25, height/2 - 25, 100, 100)
+                image(playerAttackRight, width/2 - 25, height/2 - 25, this.w * 2, this.h * 2)
             } else {
 
-                image(playerWalkingRight, width/2 - 25, height/2 - 25, 100, 100)
+                image(playerWalkingRight, width/2 - 25, height/2 - 25, this.w * 2, this.h * 2)
             }
 
         } else
 
+        //If walking left
         if(this.xDir == -5){
 
             if(breaking){
             
-                image(playerAttackLeft, width/2 - 25, height/2 - 25, 100, 100)
+                image(playerAttackLeft, width/2 - 25, height/2 - 25, this.w * 2, this.h * 2)
             } else {
 
-                image(playerWalkingLeft, width/2 - 25, height/2 - 25, 100, 100)
+                image(playerWalkingLeft, width/2 - 25, height/2 - 25, this.w * 2, this.h * 2)
             }
         } else
 
+        //If walking down
         if(this.yDir == 5){
 
             if(breaking){
             
-                image(playerAttackDown, width/2 - 25, height/2 - 25, 100, 100)
+                image(playerAttackDown, width/2 - 25, height/2 - 25, this.w * 2, this.h * 2)
             } else {
 
-                image(playerWalkingDown, width/2 - 25, height/2 - 25, 100, 100)
+                image(playerWalkingDown, width/2 - 25, height/2 - 25, this.w * 2, this.h * 2)
             }
         } else
 
+        //If walking up
         if(this.yDir == -5){
 
             if(breaking){
             
-                image(playerAttackUp, width/2 - 25, height/2 - 25, 100, 100)
+                image(playerAttackUp, width/2 - 25, height/2 - 25, this.w * 2, this.h * 2)
             } else {
 
-                image(playerWalkingUp, width/2 - 25, height/2 - 25, 100, 100)
+                image(playerWalkingUp, width/2 - 25, height/2 - 25, this.w * 2, this.h * 2)
             }
+
+        //If idle
         } else {
 
             breaking = false
-            image(playerIdle, width/2 - 25, height/2 - 25, 100, 100)
+            image(playerIdle, width/2 - 25, height/2 - 25, this.w * 2, this.h * 2)
         }
     }
 
+    /**
+     * Moves the player if applicable, if not starts the breaking process
+     */
     move(){
 
+        //If moving right
         if(this.xDir == 5){
 
             if(!grid.isOccupied(Math.floor((this.x + width/2) / 50) + 1, Math.floor((this.y + height/2) /50)) && 
@@ -82,7 +101,7 @@ class Player {
             }
         }  
 
-
+        //If moving Left
         if(this.xDir == -5){
 
             if(!grid.isOccupied(Math.floor((this.x - 5 + width/2) / 50) , Math.floor((this.y + height/2) /50)) && 
@@ -96,7 +115,7 @@ class Player {
             }
         } 
 
-
+        //If moving down
         if(this.yDir == 5){
 
             if(!grid.isOccupied(Math.floor((this.x + width/2) / 50), Math.floor((this.y + height/2) /50) + 1) && 
@@ -110,6 +129,7 @@ class Player {
             }
         } 
 
+        //If moving up
         if(this.yDir == -5){
 
             if(!grid.isOccupied(Math.floor((this.x + width/2) / 50), Math.floor((this.y -5 + height/2) /50)) && 
@@ -124,26 +144,50 @@ class Player {
         }
     }
 
+    /**
+     * Sets the direction for the x axis
+     * @param {} xDir - Desired x direction
+     */
     setXDir(xDir){
 
         this.xDir = xDir
     }
 
+    /**
+     * Sets the direction for the y axis
+     * @param {} yDir - Desired x direction
+     */
     setYDir(yDir){
 
         this.yDir = yDir
     }
 
+    /**
+     * Returns the players x value
+     * @returns Players x value
+     */
     getX(){
 
         return this.x 
     }
 
+    /**
+     * Returns the players y value
+     * @returns Players y value
+     */
     getY(){
 
         return this.y
     }
 
+    /**
+     * Checks if the player is colliding with given parameters
+     * @param {*} x - x coordinate to check against
+     * @param {*} y - y coordinate to check against
+     * @param {*} w - width of object to check against
+     * @param {*} h - height of object to check against
+     * @returns true if colliding
+     */
     isColliding(x, y, w, h){
 
         if((this.x + (width/2)) - x < (this.w/2) + (w/2) && (this.x + (width/2)) - x > -(this.w/2 + (w/2))

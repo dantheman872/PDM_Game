@@ -1,5 +1,4 @@
 // Variable creation
-
 let myFont;
 let angle = 0;
 let player;
@@ -68,7 +67,7 @@ function setup(){
     p.position(windowWidth / 2 - 230, windowHeight * 3/4 + 20)
 
     //Creates each object
-    player = new Player(30, -125, 50);
+    player = new Player(30, -125, 50, 50);
     grid = new Grid();
     item = new Item();
     shop = new Shop();
@@ -131,7 +130,7 @@ function draw(){
     player.move();
 
     shop.show()
-    player.show();
+    
     item.show()
 
     item.isColliding()
@@ -154,6 +153,7 @@ function draw(){
         //Draws the rocks
         drawObject();
     }
+    player.show();
     
     //Show the grid after pressing Q for debugging
     if(keyCode === 81){

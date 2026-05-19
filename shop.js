@@ -1,3 +1,6 @@
+/**
+ * Controls the shop, shop keeper and the forge room
+ */
 class Shop {
 
     constructor(){
@@ -19,8 +22,8 @@ class Shop {
     }
 
     /**
-     * 
-     * @returns True if the player is within bounds of the shop
+     * Checks whether the player is near the shop
+     * @returns True 
      */
     isColliding(){
 
@@ -29,8 +32,10 @@ class Shop {
             textAlign(CENTER)
             textSize(20)
             
+            //Checks if player is interating with the shop
             if(keyCode === 13){
 
+                //Displays the needs more stone image
                 if(item.rockA < 10){
 
                     image(furnaceRoom, -50, -150, width + 200, height + 200)
@@ -41,6 +46,7 @@ class Shop {
                     text("Hello Dwarf, I need " + (10 - item.rockA) + " more stones to fix the furnace", width * 0.4, height - 90, 200, 100)
                 } else {
 
+                    //Displays the victory screen
                     background(200,200,100)
                     imageMode(CENTER)
                     textAlign(CENTER)
@@ -49,6 +55,7 @@ class Shop {
                     text("Congratulations you`ve upgraded the furnace", width/2, 100)
                     text("Press R to replay", width/2, 120)
 
+                    //Spawns and spins the stars
                     angle += 3
                     this.drawStar(350, 400, -1)
                     this.drawStar(400,300, 1)
@@ -59,6 +66,7 @@ class Shop {
 
             }  else {
 
+                //Tells the player how to interact
                 textAlign(CENTER)
                 textSize(20)
                 text("Press Enter to forge", width/2, width/2)
@@ -68,6 +76,12 @@ class Shop {
         }
     }
 
+    /**
+     * Draws and spins a star
+     * @param {*} x - The x coordinate of the star
+     * @param {*} y - The y coordinate of the star
+     * @param {*} a - The spin speed and direction of star
+     */
     drawStar(x, y, a){
 
         push()

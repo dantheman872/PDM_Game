@@ -1,54 +1,49 @@
+//Sets up an array for each coordinate
 objectX = []
 objectY = []
 
-let i = 0;
-let health = 3;
-
-let checkX = 0;
-let checkY = 0;
-//let objAmount = 50;
+//Starts the objects at zero
+let stoneA = 0;
+let health = 0;
+let nextX = 0;
+let nextY = 0;
 let breaking = false
 
+/**
+ * Draws the objects
+ */
 function drawObject(){
 
-    for(i = 0; i < objectX.length; i++){
+    for(j = 0; j < objectX.length; j++){
 
-        fill(50)
-        
         imageMode(CENTER)
-        image(stone,(objectX[i] * 50 - player.getX()) + 25, (objectY[i] * 50 - player.getY()) +28, health, health)
+        image(stone,(objectX[j] * 50 - player.getX()) + 25, (objectY[j] * 50 - player.getY()) +28, health, health)
         imageMode(CORNER)
-
-        //rectMode(CENTER)
-        //rect((objectX[i] * 50 - player.getX()) + 25, (objectY[i] * 50 - player.getY()) + 25, health/4)
-        //rectMode(CORNER)
     }
-    //console.log(health)
 }
 
+/**
+ * Resets the objects data and sets new location
+ */
 function spawnObjects(){
 
-    
-    
-    while(i < 1){
-        //console.log("spawning")
-        checkX = Math.floor(random(3,14)) 
-        checkY = Math.floor(random(3,14)) 
-        objectX.push(checkX)
-        objectY.push(checkY)
-
-        
-        grid.addToGrid(checkX, checkY)     
+    while(stoneA < 1){
+        nextX = Math.floor(random(3,14)) 
+        nextY = Math.floor(random(3,14)) 
+        objectX.push(nextX)
+        objectY.push(nextY)
+        grid.addToGrid(nextX, nextY)     
         
         health = 200  
-        i++    
-                          
+        stoneA++                              
     }
 }
 
+/**
+ * Reduces rock health and removes rock when finished
+ */
 function breakObject(){
 
-    
     health -= 1
     breaking = true
 
@@ -56,11 +51,9 @@ function breakObject(){
 
         objectX.splice(0,10)
         objectY.splice(0,10)
-        grid.removeFromGrid(checkX, checkY)
-        item.spawn(checkX, checkY)
-        i--
-
-        spawnObjects();      
-        
+        grid.removeFromGrid(nextX, nextY)
+        item.spawn(nextX, nextY)
+        stoneA--
+        spawnObjects();       
     }
 }
