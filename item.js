@@ -18,9 +18,14 @@ class Item {
     show(){
 
         for(let i = 0; i < this.x.length; i++){
-            rectMode(CENTER)
-            rect((this.x[i] * 50) - player.getX() + 25, (this.y[i] * 50) - player.getY() + 25, this.w)
-            rectMode(CORNER)
+
+            imageMode(CENTER)
+            image(stonePickup,(this.x[i] * 50) - player.getX() + 25, (this.y[i] * 50) - player.getY() + 25)
+            imageMode(CORNER)
+
+            // rectMode(CENTER)
+            // rect((this.x[i] * 50) - player.getX() + 25, (this.y[i] * 50) - player.getY() + 25, this.w)
+            // rectMode(CORNER)
         }
     }
 

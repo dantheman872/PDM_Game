@@ -16,24 +16,49 @@ class Player {
         //rect(width/2, height/2 , 50);
         //rect(this.x + width/2 - this.x, this.y + height/2 - this.y, 10)
 
-        if(this.xDir == 5 && breaking){
+        if(this.xDir == 5){
 
-            image(playerAttackRight, width/2 - 25, height/2 - 25, 100, 100)
+            if(breaking){
+
+                image(playerAttackRight, width/2 - 25, height/2 - 25, 100, 100)
+            } else {
+
+                image(playerWalkingRight, width/2 - 25, height/2 - 25, 100, 100)
+            }
+
         } else
 
-        if(this.xDir == -5 && breaking){
+        if(this.xDir == -5){
 
-            image(playerAttackLeft, width/2 - 25, height/2 - 25, 100, 100)
+            if(breaking){
+            
+                image(playerAttackLeft, width/2 - 25, height/2 - 25, 100, 100)
+            } else {
+
+                image(playerWalkingLeft, width/2 - 25, height/2 - 25, 100, 100)
+            }
         } else
 
-        if(this.yDir == 5 && breaking){
+        if(this.yDir == 5){
 
-            image(playerAttackDown, width/2 - 25, height/2 - 25, 100, 100)
+            if(breaking){
+            
+                image(playerAttackDown, width/2 - 25, height/2 - 25, 100, 100)
+            } else {
+
+                image(playerWalkingDown, width/2 - 25, height/2 - 25, 100, 100)
+            }
         } else
 
-        if(this.yDir == -5 && breaking){
+        if(this.yDir == -5){
 
-            image(playerAttackUp, width/2 - 25, height/2 - 25, 100, 100)
+            if(breaking){
+            
+                image(playerAttackUp, width/2 - 25, height/2 - 25, 100, 100)
+            } else {
+
+                image(playerWalkingUp, width/2 - 25, height/2 - 25, 100, 100)
+            }
         } else {
 
             breaking = false

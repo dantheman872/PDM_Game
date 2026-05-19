@@ -6,7 +6,7 @@ let health = 3;
 
 let checkX = 0;
 let checkY = 0;
-let objAmount = 50;
+//let objAmount = 50;
 let breaking = false
 
 function drawObject(){
@@ -60,10 +60,7 @@ function breakObject(){
         item.spawn(checkX, checkY)
         i--
 
-        spawnObjects();
-        
-        
-        
+        spawnObjects();      
         
     }
 }

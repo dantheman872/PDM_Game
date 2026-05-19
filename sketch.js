@@ -1,11 +1,12 @@
-
+let myFont;
+let angle = 0;
 let player;
 let item;
 let grid;
-let shop;
+let shop, shopImage, shopkeeper, furnaceRoom, furnace;
 let backgroundImg, backWidth, backHeight;
-let playerAttackDown, playerAttackRight, playerAttackLeft, playerAttackUp, playerIdle;
-let stone;
+let playerAttackDown, playerAttackRight, playerAttackLeft, playerAttackUp, playerIdle, playerWalkingDown, playerWalkingRight, playerWalkingLeft, playerWalkingUp;
+let stone, stonePickup;
 
 backHeight = 910;
 backWidth = 900;
@@ -16,21 +17,46 @@ let gridA = []
 
 function preload(){
 
+    myFont = loadFont("assets/OldStandardTT-Regular.ttf")
+
     backgroundImg = loadImage('assets/background.png')
-    playerAttackDown = loadImage('assets/player_attack_down.gif')
-    playerAttackRight = loadImage('assets/player_attack_right.gif')
-    playerAttackLeft = loadImage('assets/player_attack_left.gif')
-    playerAttackUp = loadImage('assets/player_attack_up.gif')
-    playerIdle = loadImage('assets/player_idle.gif')
 
     stone = loadImage('assets/stone.png')
+    stonePickup = loadImage('assets/stone_pickup.png')
+   
+    playerAttackLeft = loadImage('assets/Player/Left/player_mining_left.gif')
+    playerWalkingLeft = loadImage('assets/Player/Left/player_walking_left.gif')
+
+    playerAttackRight = loadImage('assets/Player/Right/player_mining_right.gif')
+    playerWalkingRight = loadImage('assets/Player/Right/player_walking_right.gif')
+
+    playerAttackUp = loadImage('assets/Player/Up/player_mining_up.gif')
+    playerWalkingUp = loadImage('assets/Player/Up/player_walking_up.gif')
+
+    playerAttackDown = loadImage('assets/Player/Down/player_mining_down.gif')
+    playerWalkingDown = loadImage('assets/Player/Down/player_walking_down.gif')
+
+    playerIdle = loadImage('assets/Player/Down/player_walking_down.gif')
+
+    shopImage = loadImage('assets/Shop/shop.png')
+    shopkeeper = loadImage('assets/Shop/shopkeeper.gif')
+    furnaceRoom = loadImage('assets/Shop/furnace_Room.png')
+    furnace = loadImage('assets/Shop/furnace.png')
+    
+
+    
 }
 
 
 function setup(){
-
+    textFont(myFont)
     createCanvas(500, 500)
-    player = new Player(width * 1/4, height * 1/4, 50);
+    angleMode(DEGREES)
+    keyCode = 13
+    
+    let p = createP("Use the arrow keys to move and to mine rocks and sell them to the forge")
+    p.position(windowWidth / 2 - 230, windowHeight * 3/4 + 20)
+    player = new Player(30, -125, 50);
     grid = new Grid();
     item = new Item();
     shop = new Shop();
@@ -70,37 +96,58 @@ function setup(){
         grid.addToGrid(15,1);
         grid.addToGrid(16,1);
         grid.addToGrid(16,2);
-        grid.addToGrid(16,3);      
-
+        grid.addToGrid(16,3);     
+        
+        grid.addToGrid(5,1);
+        grid.addToGrid(6,1);
+        grid.addToGrid(7,1);    
+        grid.addToGrid(9,1);
     }
       
 }
 
 function draw(){
+    
 
     drawBackground();
     player.move();
-    player.show();
     shop.show()
+    player.show();
+    
     item.show()
     item.isColliding()
     shop.isColliding()
     player.isColliding()
 
+    if(keyCode === 82){
+
+        item.rockA = 0
+        player.x = width * 1/4
+        player.y = height * 1/4
+    }
+    //console.log(item.rockA)
+
     if(breaking == true){
 
         //console.log("true")
     }
+        //console.log(angle)
+        //console.log(player.x + " + " + player.y)
+    if(keyCode === 13 && shop.isColliding()){
+
         
+    } else {
+
+        drawObject();
+    }
     
-    drawObject();
     if(keyCode === 81){
 
         grid.show();    
     } 
 
-    text("Rocks Collected: ", 20, 30)
-    text(item.rockA, 120, 30)
+    //text("Rocks Collected: ", 20, 30)
+    //text(item.rockA, 120, 3    
 }
 
 function keyPressed() {
