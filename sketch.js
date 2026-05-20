@@ -160,6 +160,21 @@ function draw(){
 
         grid.show();    
     } 
+
+    if(shop.isColliding() == true){
+
+        if(keyCode == 13){
+
+
+        } else {
+
+            //Tells the player how to interact
+                textAlign(CENTER)
+                textSize(20)
+                fill(250)
+                text("Press Enter to sell", width/2, height * 3/4)
+        }
+    }
 }
 
 /**

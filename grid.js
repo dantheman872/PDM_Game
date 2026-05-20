@@ -20,6 +20,7 @@ class Grid{
             for (let j = 0; j < rows; j++){
 
                 gridA[i][j] = false
+
             }
         }
     }

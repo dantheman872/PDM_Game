@@ -28,8 +28,8 @@ function drawObject(){
 function spawnObjects(){
 
     while(stoneA < 1){
-        nextX = Math.floor(random(3,14)) 
-        nextY = Math.floor(random(3,14)) 
+        nextX = Math.floor(random(4,13)) 
+        nextY = Math.floor(random(4,13)) 
         objectX.push(nextX)
         objectY.push(nextY)
         grid.addToGrid(nextX, nextY)     

@@ -66,10 +66,7 @@ class Shop {
 
             }  else {
 
-                //Tells the player how to interact
-                textAlign(CENTER)
-                textSize(20)
-                text("Press Enter to forge", width/2, width/2)
+                
             }
 
             return true
